@@ -16,7 +16,7 @@ function apiRoutes(router : Router, name : string, middleware : any, controllers
 
     // the following creates a middleware, which has not been translated yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    const multiParty = multipart();
+    const multiParty = new multipart();
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument
     const middlewares = [multiParty, middleware.validateFiles, middleware.applyCSRF, middleware.ensureLoggedIn];

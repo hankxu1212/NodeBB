@@ -17,7 +17,7 @@ function apiRoutes(router, name, middleware, controllers) {
     router.get(`/api/${name}/advanced/cache/dump`, middleware.ensureLoggedIn, helpers_1.default.tryRoute(controllers.admin.cache.dump));
     // the following creates a middleware, which has not been translated yet
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    const multiParty = (0, connect_multiparty_1.default)();
+    const multiParty = new connect_multiparty_1.default();
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument
     const middlewares = [multiParty, middleware.validateFiles, middleware.applyCSRF, middleware.ensureLoggedIn];
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument
